@@ -1,0 +1,79 @@
+﻿<Page
+    x:Class="ShopMetals.Views.Pages.EditPages.ItemsEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Title="ItemsEditPage"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    d:DesignHeight="250"
+    d:DesignWidth="370"
+    mc:Ignorable="d">
+
+    <StackPanel Width="300">
+        <Border
+            Height="Auto"
+            Margin="5"
+            Padding="10"
+            AllowDrop="True"
+            BorderBrush="#333333"
+            BorderThickness="1"
+            CornerRadius="10"
+            Drop="UIElement_OnDrop"
+            MouseDown="Border_MouseDown">
+            <Grid>
+                <StackPanel
+                    Name="SpView"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <md:PackIcon
+                        Foreground="#333333"
+                        Kind="Paperclip"
+                        RenderTransformOrigin="0.5,0.5">
+                        <md:PackIcon.RenderTransform>
+                            <TransformGroup>
+                                <RotateTransform Angle="35" />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </md:PackIcon.RenderTransform>
+                    </md:PackIcon>
+                    <TextBlock Foreground="#333333" Text="Перетащите сюда файл что бы загрузить" />
+                </StackPanel>
+                <Image
+                    Name="ImageView"
+                    Height="200"
+                    Source="{Binding Image}"
+                    Visibility="Collapsed" />
+            </Grid>
+        </Border>
+        <TextBox
+            Name="TbTitle"
+            md:HintAssist.Hint="Название"
+            md:HintAssist.IsFloating="True"
+            Text="{Binding Title}" />
+        <ComboBox
+            Name="CbType"
+            md:HintAssist.Hint="Категория"
+            md:HintAssist.IsFloating="True"
+            DisplayMemberPath="Title"
+            SelectedItem="{Binding TypeItem}" />
+        <TextBox
+            Name="TbCost"
+            md:HintAssist.Hint="Цена"
+            md:HintAssist.IsFloating="True"
+            Text="{Binding Cost, StringFormat=0}" />
+        <TextBox
+            Name="TbCount"
+            md:HintAssist.Hint="Количество на складе"
+            md:HintAssist.IsFloating="True"
+            Text="{Binding CountInStorage}" />
+
+        <Button
+            Margin="0,5"
+            Click="Button_Click"
+            Content="Добавить" />
+    </StackPanel>
+</Page>

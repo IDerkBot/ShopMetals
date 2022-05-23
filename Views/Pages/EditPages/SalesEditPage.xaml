@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="ShopMetals.Views.Pages.EditPages.SalesEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Title="SalesEditPage"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    d:DesignHeight="250"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <StackPanel Width="400">
+        <Expander MaxHeight="300" Header="Товары">
+            <ScrollViewer>
+                <ListView Name="LvItems" SelectionMode="Multiple">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="400">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Title}" />
+                                <TextBlock Grid.Column="1" Text="{Binding Cost, StringFormat=0 рублей}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Expander>
+        <!--<ComboBox
+			Name="CbItem"
+			md:HintAssist.Hint="Товар"
+			md:HintAssist.IsFloating="True"
+			DisplayMemberPath="Title"
+			SelectedItem="{Binding AllItem}" />-->
+        <ComboBox
+            Name="CbCustomer"
+            md:HintAssist.Hint="Покупатель"
+            md:HintAssist.IsFloating="True"
+            DisplayMemberPath="Fullname"
+            SelectedItem="{Binding Customer}" />
+        <ComboBox
+            Name="CbSeller"
+            md:HintAssist.Hint="Продавец"
+            md:HintAssist.IsFloating="True"
+            DisplayMemberPath="Fullname"
+            SelectedItem="{Binding Seller}" />
+        <TextBox
+            Name="TbCount"
+            md:HintAssist.Hint="Количество"
+            md:HintAssist.IsFloating="True"
+            Text="{Binding Count}"
+            TextChanged="TbCount_OnTextChanged" />
+        <DatePicker
+            Name="DpDate"
+            md:HintAssist.Hint="Дата продажи"
+            md:HintAssist.IsFloating="True" />
+        <TextBlock
+            Name="TblSum"
+            Margin="0,10"
+            md:HintAssist.Hint="Сумма"
+            md:HintAssist.IsFloating="True"
+            FontSize="14"
+            TextAlignment="Center" />
+
+        <Button
+            Margin="0,5"
+            Click="Button_Click"
+            Content="Добавить" />
+    </StackPanel>
+</Page>

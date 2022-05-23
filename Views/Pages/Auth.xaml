@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="ShopMetals.Views.Pages.Auth"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Title="Auth"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    d:DesignHeight="180"
+    d:DesignWidth="300"
+    Loaded="Auth_OnLoaded"
+    mc:Ignorable="d">
+
+    <StackPanel Width="300">
+        <TextBox
+            Name="TbLogin"
+            md:HintAssist.Hint="Логин"
+            md:HintAssist.IsFloating="True"
+            FontSize="14" />
+        <PasswordBox
+            Name="PbPassword"
+            md:HintAssist.Hint="Пароль"
+            md:HintAssist.IsFloating="True"
+            FontSize="14" />
+        <CheckBox
+            Name="CbRemember"
+            Margin="5"
+            Content="Запомнить"
+            FontSize="14" />
+        <Button
+            Margin="0,5"
+            Click="Auth_Click"
+            Content="Войти"
+            FontSize="14" />
+        <Button
+            Click="Reg_Click"
+            Content="Регистрация"
+            FontSize="14" />
+    </StackPanel>
+</Page>
