@@ -298,6 +298,7 @@
       <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Resources\script.sql" />
     <Resource Include="Views\Resources\Images\Account.png" />
     <Resource Include="Views\Resources\Images\logo.ico" />
     <Resource Include="Views\Resources\Images\logo.jpg" />
